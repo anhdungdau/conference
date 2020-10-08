@@ -5,69 +5,71 @@ session_start();
 $db = mysqli_connect('localhost', 'root', '', 'conference');
 
 // variable declaration
-$firstName = "";
-$lastName = "";
-$email = "";
-$phone = "";
-$company = "";
-$username = "";
-$errors = array(); 
+    $firstName = "";
+    $lastName = "";
+    $email = "";
+    $phone = "";
+    $company = "";
+    $username = "";
+    $errors = array(); 
 
 // call the register() function if register_btn is clicked
-if (isset($_POST['register_btn'])) {
-	register();
-}
+    if (isset($_POST['register_btn'])) {
+        register();
+    }
 
 // call the login() function if register_btn is clicked
-if (isset($_POST['login_btn'])) {
-    login();
-}
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['user']);
-    header("location: login.php");
+    if (isset($_POST['login_btn'])) {
+        login();
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['user']);
+        header("location: login.php");
 }
 
 // REGISTER USER
-function register(){
-	// call these variables with the global keyword to make them available in function
-global $db, $firstName, $lastName, $email, $phone, $company, $username, $errors;
+    function register(){
+	
+// Call these variables with the global keyword to make them available in function
+    global $db, $firstName, $lastName, $email, $phone, $company, $username, $errors;
 
 // receive all input values from the form. Call the e() function defined below to escape form values
-$firstName      =  e($_POST['firstName']);
-$lastName       =  e($_POST['lastName']);
-$email          =  e($_POST['email']);
-$phone          =  e($_POST['phone']);
-$company        =  e($_POST['company']);
-$username       =  e($_POST['username']); 
-$password       =  e($_POST['password']);
-$password_check =  e($_POST['password_check']);
+    $firstName      =  e($_POST['firstName']);
+    $lastName       =  e($_POST['lastName']);
+    $email          =  e($_POST['email']);
+    $phone          =  e($_POST['phone']);
+    $company        =  e($_POST['company']);
+    $username       =  e($_POST['username']); 
+    $password       =  e($_POST['password']);
+    $password_check =  e($_POST['password_check']);
 
-	// form validation: ensure that the form is correctly filled
-if (empty($firstName)) { 
-  array_push($errors, "First Name is required"); 
-}
-if (empty($lastName)) { 
-  array_push($errors, "Last Name is required"); 
-}
-if (empty($email)) { 
-  array_push($errors, "Email is required"); 
-}
-if (empty($phone)) { 
-  array_push($errors, "Phone is required"); 
-}
-if (empty($company)) { 
-  array_push($errors, "Company is required"); 
-}
-if (empty($username)) { 
-  array_push($errors, "Username is required"); 
-}
-if (empty($password)) { 
-  array_push($errors, "Password is required"); 
-}
-if ($password != $password_check) {
-array_push($errors, "The passwords do not match");
-}
+// form validation: ensure that the form is correctly filled
+    if (empty($firstName)) { 
+      array_push($errors, "First Name is required"); 
+    }
+    if (empty($lastName)) { 
+      array_push($errors, "Last Name is required"); 
+    }
+    if (empty($email)) { 
+      array_push($errors, "Email is required"); 
+    }
+    if (empty($phone)) { 
+      array_push($errors, "Phone is required"); 
+    }
+    if (empty($company)) { 
+      array_push($errors, "Company is required"); 
+    }
+    if (empty($username)) { 
+      array_push($errors, "Username is required"); 
+    }
+    if (empty($password)) { 
+      array_push($errors, "Password is required"); 
+    }
+    if ($password != $password_check) {
+    array_push($errors, "The passwords do not match");
+    }
 
 // register user if there are no errors in the form
 if (count($errors) == 0) {
