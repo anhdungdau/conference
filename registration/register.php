@@ -35,7 +35,7 @@
                 <input type="text" name="company" value="<?php echo $company; ?>">
             </div>
             <div class="input-group">
-                <label>User Name</label>
+                <label>Username</label>
                 <input type="text" name="username" value="<?php echo $username; ?>">
             </div>
             <div class="input-group">
@@ -50,7 +50,7 @@
                 <button type="submit" class="btn" name="register_btn">Register</button>
             </div>
             <p>
-                Already an antendee? <a href="login.php">Sign in</a>
+                Already an attendee? <a href="login.php">Click here to sign in</a>
             </p>
     </form>
 </body>

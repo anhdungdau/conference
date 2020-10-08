@@ -9,7 +9,7 @@ if (!isLoggedIn()) {
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../css/registration.css">
 </head>
 <body>
 	<div class="header">
@@ -30,17 +30,14 @@ if (!isLoggedIn()) {
 		<!-- logged in user information -->
 		<div class="profile_info">
 			<img src="images/user_profile.png"  >
-
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
 					<strong><?php echo $_SESSION['user']['username']; ?></strong>
-
 					<small>
 						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
 						<br>
 						<a href="index.php?logout='1'" style="color: red;">logout</a>
 					</small>
-
 				<?php endif ?>
 			</div>
 		</div>
