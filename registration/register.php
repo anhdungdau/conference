@@ -13,7 +13,6 @@
         <h2>Registration for Australian Financial Pathways Conference</h2>
     </div>
     <form method="post" action="register.php">
-<!--        <?php include('errors.php'); ?>-->
            <?php echo display_error(); ?>
             <div class="input-group">
                 <label>First Name</label>
@@ -21,7 +20,7 @@
             </div>
             <div class="input-group">
                 <label>Last Name</label>
-                <input type="text" name="username" value="<?php echo $lastName; ?>">
+                <input type="text" name="lastName" value="<?php echo $lastName; ?>">
             </div>
             <div class="input-group">
                 <label>Email</label>
@@ -48,10 +47,10 @@
                 <input type="password" name="password_check">
             </div>
             <div class="input-group">
-                <button type="submit" class="btn" name="reg_user">Register</button>
+                <button type="submit" class="btn" name="register_btn">Register</button>
             </div>
             <p>
-                Already a member? <a href="login.php">Sign in</a>
+                Already an antendee? <a href="login.php">Sign in</a>
             </p>
     </form>
 </body>
