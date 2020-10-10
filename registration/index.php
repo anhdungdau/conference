@@ -1,45 +1,54 @@
-<?php
-include('functions.php');
-if (!isLoggedIn()) {
-	$_SESSION['msg'] = "You must log in first";
-	header('location: login.php');
-}
-include('../include/header.php');
+<?php 
+	include('functions.php');
+
+	if (!isLoggedIn()) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: login.php');
+	}
 ?>
-
-
-    <div class="content">
-        <!-- notification message -->
-        <?php if (isset($_SESSION['success'])) : ?>
-            <div class="error success">
-                <h3>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="../css/user.css">
+</head>
+<body>
+	<div class="header">
+		<h2>Home Page</h2>
+	</div>
+	<div class="content">
+		<!-- notification message -->
+		<?php if (isset($_SESSION['success'])) : ?>
+			<div class="error success" >
+				<h3>
 					<?php 
 						echo $_SESSION['success']; 
 						unset($_SESSION['success']);
 					?>
 				</h3>
-            </div>
-            <?php endif ?>
-                <!-- logged in user information -->
-                <div class="profile_info">
-                    <a class="navbar-brand" href="/">
-                        <div class="logo-image">
-                            <img src="images/user_profile.png" class="img-fluid">
-                        </div>
-                    </a>
-                    <div>
-                        <?php  if (isset($_SESSION['user'])) : ?>
-                            <strong><?php echo $_SESSION['user']['username']; ?></strong>
-                            <small>
-						<i style="color: #888;"><?php echo ucfirst($_SESSION['user']['user_type']); ?></i> 
+			</div>
+		<?php endif ?>
+		<!-- logged in user information -->
+		<div class="profile_info">
+			<img src="images/user_profile.png"  >
+
+			<div>
+				<?php  if (isset($_SESSION['user'])) : ?>
+					<strong><?php echo $_SESSION['user']['username']; ?></strong>
+
+					<small>
+						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
 						<br>
 						<a href="index.php?logout='1'" style="color: red;">logout</a>
 					</small>
-                            <?php endif ?>
-                    </div>
-                </div>
-                <h1>Welcome to the Australian Financial Pathways Conference (AFPC)</h1>
-                <div>
+
+				<?php endif ?>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+    
+	    <h1>Welcome to the Australian Financial Pathways Conference (AFPC)</h1>
                     <div>
                         <h2>Timetable of Presentations</h2></div>
                     <table id="table">
@@ -97,9 +106,6 @@ include('../include/header.php');
         mysqli_close($db);  
         ?>
                     </table>
-
-                </div>
-    </div>
-    </body>
-
-    </html>
+	</div>
+</body>
+</html>
