@@ -65,10 +65,11 @@
                         </tr>
                         <?php 
                 $db = mysqli_connect('localhost', 'root', '', 'conference'); 
-                $sql = "SELECT presentations.presentationID, topics.title, CONCAT(speakers.firstName,'',speakers.lastName), speakers.company AS 'Company', presentations.startTime, presentations.duration, venues.title AS 'Venue', venues.location, venues.capacity FROM presentations
-                INNER JOIN topics ON presentations.topicID = topics.topicID
-                INNER JOIN speakers ON presentations.speakerID = speakers.speakerID
-                INNER JOIN venues ON presentations.venueID = venues.venueID;";
+                $sql = "SELECT * FROM showpre";
+//                $sql = "SELECT presentations.presentationID, topics.title, CONCAT(speakers.firstName,'',speakers.lastName) AS 'Speaker', speakers.company AS 'Company', presentations.startTime, presentations.duration, venues.title AS 'Venue', venues.location, venues.capacity FROM presentations
+//                INNER JOIN topics ON presentations.topicID = topics.topicID
+//                INNER JOIN speakers ON presentations.speakerID = speakers.speakerID
+//                INNER JOIN venues ON presentations.venueID = venues.venueID;";
                 $result = mysqli_query($db,$sql);
                 while ($row=mysqli_fetch_array($result)) {                    
             ?>
@@ -77,28 +78,28 @@
                                     <?php echo $row['presentationID'];?>
                                 </td>
                                 <td>
-                                    <?php echo $row['topics.title'];?>
+                                    <?php echo $row['title'];?>
                                 </td>
                                 <td>
-                                    <?php echo $row['speakers.firstName'].''.$row['speakers.lastName'];?>
+                                    <?php echo $row['Speaker'];?>
                                 </td>
                                 <td>
-                                    <?php echo $row['speakers.company'];?>
+                                    <?php echo $row['Company'];?>
                                 </td>
                                 <td>
-                                    <?php echo $row['presentations.startTime'];?>
+                                    <?php echo $row['startTime'];?>
                                 </td>
                                 <td>
-                                    <?php echo $row['presentations.duration'];?>
+                                    <?php echo $row['duration'];?>
                                 </td>
                                 <td>
-                                    <?php echo $row['venues.title'];?>
+                                    <?php echo $row['Venue'];?>
                                 </td>
                                 <td>
-                                    <?php echo $row['venues.location'];?>
+                                    <?php echo $row['location'];?>
                                 </td>
                                 <td>
-                                    <?php echo $row['venues.capacity'];?>
+                                    <?php echo $row['capacity'];?>
                                 </td>
                             </tr>
                             <?php 
