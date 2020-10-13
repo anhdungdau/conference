@@ -1,14 +1,9 @@
-<?php 
-	include('functions.php');
-	if (!isLoggedIn()) {
-		$_SESSION['msg'] = "You must log in first";
-		header('location: login.php');
-	}
-?>
+<?php include('../include/session.php'); ?>
 
 <!DOCTYPE html>
 <html>
     <?php include('../include/header.php'); ?>
+
         <body>
             <?php include('../include/navbar.php'); ?>
                 <h1>Welcome to the Australian Financial Pathways Conference (AFPC)</h1>
@@ -72,4 +67,5 @@
         ?>
                 </table>
         </body>
+
 </html>
