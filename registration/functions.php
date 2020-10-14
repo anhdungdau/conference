@@ -112,14 +112,13 @@ if (count($errors) == 0) {
 				// check if user is admin or user
 				$logged_in_user = mysqli_fetch_assoc($results);
 				if ($logged_in_user['user_type'] == 'admin') {
-
 					$_SESSION['user'] = $logged_in_user;
-					$_SESSION['success']  = "You are now logged in";
+					$_SESSION['success']  = "Admin logged in";
 					header('location: admin/home.php');		  
 				}
                 else{
 					$_SESSION['user'] = $logged_in_user;
-					$_SESSION['success']  = "You are now logged in";
+					$_SESSION['success']  = "User logged in";
 					header('location: index.php');
 				}
 			}

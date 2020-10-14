@@ -1,7 +1,7 @@
 <?php 
 	include('../registration/functions.php');
-	if (!isLoggedIn()) {
-		$_SESSION['msg'] = "You must login first";
+	if (!isAdmin()) {
+		$_SESSION['msg'] = "You must login your admin account";
 		header('location: ../registration/login.php');
 	}
 ?>

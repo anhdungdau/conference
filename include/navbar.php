@@ -4,7 +4,7 @@
             <a class="navbar-brand" href="../registration/index.php">AFPC</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="../registration/index.php">Presentations List</a></li>
+            <li><a href="../content/showPresentations.php">Presentations List</a></li>
             <li><a href="../content/showTopics.php">Topics List</a></li>
             <li><a href="../content/showSpeakers.php">Speakers List</a></li>
             <li><a href="../content/showAttendees.php">Attendees List</a></li>
