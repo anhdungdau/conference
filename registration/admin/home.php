@@ -38,7 +38,7 @@
 		<h1>Admin - Home Page</h1>	
 		<br><br>
 		<ol>
-            <a href="../../content/addPresentationForm.php">Add a presentation</a><br><br>
+            <a href="../../content/addSpeakerForm.php">Add a Speaker</a><br><br>
             <a href="#">Add a topic</a><br><br>
             <a href="#">Add a speaker</a><br><br>
             <a href="#">Add a venue</a><br><br>
