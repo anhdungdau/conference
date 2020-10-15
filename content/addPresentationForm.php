@@ -2,21 +2,20 @@
 	include('../registration/functions.php');
 	if (!isAdmin()) {
 		$_SESSION['msg'] = "Admin login required!";
-		header('location: ../admin/home.php');
+		header('startTime: ../admin/home.php');
         exit();
 	}
 
-    include('crudVenues.php');
+    include('crudPresentations.php');
 
     //fetch the record to be updated
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
         $edit_state = true;
-		$rec = mysqli_query($db, "SELECT * FROM venues WHERE venueID=$id");
+		$rec = mysqli_query($db, "SELECT presentationID, startTime, duration FROM presentations WHERE presentationID=$id");
         $record = mysqli_fetch_array($rec);
-        $title = $record['title'];
-        $location = $record['location'];
-        $capacity = $record['capacity'];
+        $startTime = $record['startTime'];
+        $duration = $record['duration'];
 	}
 
 ?>
@@ -72,15 +71,14 @@
             </div>
             <?php endif ?>
 
-                <?php $results = mysqli_query($db, "SELECT * FROM venues"); ?>
+                <?php $results = mysqli_query($db, "SELECT presentationID, startTime, duration FROM presentations"); ?>
                     <center>
-                        <h1>List of Venues</h1></center>
+                        <h1>List of Presentations</h1></center>
                     <table>
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Location</th>
-                                <th>Capacity</th>
+                                <th>Start Time</th>
+                                <th>Duration</th>
                                 <th colspan="2">Action</th>
                             </tr>
                         </thead>
@@ -88,19 +86,16 @@
                             <?php while ($row = mysqli_fetch_array($results)) { ?>
                                 <tr>
                                     <td>
-                                        <?php echo $row['title']; ?>
+                                        <?php echo $row['startTime']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['location']; ?>
+                                        <?php echo $row['duration']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['capacity']; ?>
+                                        <a href="addPresentationForm.php?edit=<?php echo $row['presentationID'];?>" class="edit_btn">Edit</a>
                                     </td>
                                     <td>
-                                        <a href="addVenueForm.php?edit=<?php echo $row['venueID'];?>" class="edit_btn">Edit</a>
-                                    </td>
-                                    <td>
-                                        <a href="crudVenues.php?del=<?php echo $row['venueID']; ?>" class="del_btn">Delete</a>
+                                        <a href="crudPresentations.php?del=<?php echo $row['presentationID']; ?>" class="del_btn">Delete</a>
                                     </td>
                                 </tr>
                                 <?php } ?>
@@ -108,20 +103,16 @@
                     </table>
 
                     <center>
-                        <h2>Add a new venue</h2></center>
-                    <form method="post" action="crudVenues.php">
-                        <input type="hidden" name="venueID" value="<?php echo $id;?>">
+                        <h2>Add a new Presentation</h2></center>
+                    <form method="post" action="crudPresentations.php">
+                        <input type="hidden" name="presentationID" value="<?php echo $id;?>">
                         <div class="input-group">
-                            <label>Title</label>
-                            <input type="text" name="title" value="<?php echo $title;?>">
+                            <label>Start Time</label>
+                            <input type="text" name="startTime" value="<?php echo $startTime;?>">
                         </div>
                         <div class="input-group">
-                            <label>Location</label>
-                            <input type="text" name="location" value="<?php echo $location;?>">
-                        </div>
-                        <div class="input-group">
-                            <label>Capacity</label>
-                            <input type="text" name="capacity" value="<?php echo $capacity;?>">
+                            <label>Duration</label>
+                            <input type="text" name="duration" value="<?php echo $duration;?>">
                         </div>
                         <div class="input-group">
                             <?php if ($edit_state == true): ?>

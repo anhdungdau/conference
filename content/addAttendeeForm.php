@@ -6,17 +6,20 @@
         exit();
 	}
 
-    include('crudVenues.php');
+    include('crudAttendees.php');
 
     //fetch the record to be updated
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
         $edit_state = true;
-		$rec = mysqli_query($db, "SELECT * FROM venues WHERE venueID=$id");
+		$rec = mysqli_query($db, "SELECT * FROM attendees WHERE attendeeID=$id");
         $record = mysqli_fetch_array($rec);
-        $title = $record['title'];
-        $location = $record['location'];
-        $capacity = $record['capacity'];
+        $firstName = $record['firstName'];
+        $lastName = $record['lastName'];
+        $email = $record['email'];
+        $phone = $record['phone'];
+        $company = $record['company'];
+        $username = $record['username'];
 	}
 
 ?>
@@ -60,8 +63,8 @@
                                     <small><a href="../registration/index.php?logout='1'" style="color: red;">Logout</a></small>
                 </div>
             </div>
-        </nav>
 
+        </nav>
 
         <?php if (isset($_SESSION['msg'])):?>
             <div class="msg">
@@ -72,15 +75,18 @@
             </div>
             <?php endif ?>
 
-                <?php $results = mysqli_query($db, "SELECT * FROM venues"); ?>
+                <?php $results = mysqli_query($db, "SELECT * FROM attendees"); ?>
                     <center>
-                        <h1>List of Venues</h1></center>
+                        <h1>List of Attendees</h1></center>
                     <table>
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Location</th>
-                                <th>Capacity</th>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Company</th>
+                                <th>Username</th>
                                 <th colspan="2">Action</th>
                             </tr>
                         </thead>
@@ -88,19 +94,28 @@
                             <?php while ($row = mysqli_fetch_array($results)) { ?>
                                 <tr>
                                     <td>
-                                        <?php echo $row['title']; ?>
+                                        <?php echo $row['firstName']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['location']; ?>
+                                        <?php echo $row['lastName']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['capacity']; ?>
+                                        <?php echo $row['email']; ?>
                                     </td>
                                     <td>
-                                        <a href="addVenueForm.php?edit=<?php echo $row['venueID'];?>" class="edit_btn">Edit</a>
+                                        <?php echo $row['phone']; ?>
                                     </td>
                                     <td>
-                                        <a href="crudVenues.php?del=<?php echo $row['venueID']; ?>" class="del_btn">Delete</a>
+                                        <?php echo $row['company']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['username']; ?>
+                                    </td>
+                                    <td>
+                                        <a href="addAttendeeForm.php?edit=<?php echo $row['attendeeID'];?>" class="edit_btn">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="crudAttendees.php?del=<?php echo $row['attendeeID']; ?>" class="del_btn">Delete</a>
                                     </td>
                                 </tr>
                                 <?php } ?>
@@ -108,20 +123,32 @@
                     </table>
 
                     <center>
-                        <h2>Add a new venue</h2></center>
-                    <form method="post" action="crudVenues.php">
-                        <input type="hidden" name="venueID" value="<?php echo $id;?>">
+                        <h2>Add a new attendee</h2></center>
+                    <form method="post" action="crudAttendees.php">
+                        <input type="hidden" name="attendeeID" value="<?php echo $id;?>">
                         <div class="input-group">
-                            <label>Title</label>
-                            <input type="text" name="title" value="<?php echo $title;?>">
+                            <label>Firstname</label>
+                            <input type="text" name="firstName" value="<?php echo $firstName;?>">
                         </div>
                         <div class="input-group">
-                            <label>Location</label>
-                            <input type="text" name="location" value="<?php echo $location;?>">
+                            <label>Lastname</label>
+                            <input type="text" name="lastName" value="<?php echo $lastName;?>">
                         </div>
                         <div class="input-group">
-                            <label>Capacity</label>
-                            <input type="text" name="capacity" value="<?php echo $capacity;?>">
+                            <label>Email</label>
+                            <input type="text" name="email" value="<?php echo $email;?>">
+                        </div>
+                        <div class="input-group">
+                            <label>Phone</label>
+                            <input type="text" name="phone" value="<?php echo $phone;?>">
+                        </div>
+                        <div class="input-group">
+                            <label>Company</label>
+                            <input type="text" name="company" value="<?php echo $company;?>">
+                        </div>
+                        <div class="input-group">
+                            <label>Username</label>
+                            <input type="text" name="username" value="<?php echo $username;?>">
                         </div>
                         <div class="input-group">
                             <?php if ($edit_state == true): ?>
