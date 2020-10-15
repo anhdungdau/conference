@@ -9,21 +9,18 @@
                 <h1>Welcome to the Australian Financial Pathways Conference (AFPC)</h1>
                 <br>
                 <br>
-                <ol>
-                    <a href="../content/showPresentations.php" target="_blank">List of Presentations</a>
-                    <br>
-                    <br>
-                    <a href="../content/showSpeakers.php" target="_blank">List of Speakers</a>
-                    <br>
-                    <br>
-                    <a href="../content/showTopics.php" target="_blank">List of Topics</a>
-                    <br>
-                    <br>
-                    <a href="../content/showVenues.php" target="_blank">List of Venues</a>
-                    <br>
-                    <br>
-                    <a href="../content/showAttendees.php" target="_blank">List of Attendees</a>
-                </ol>
+                <div class="container">
+
+                    <button onclick="location.href='../content/showPresentations.php'" type="button" class="btn btn-primary btn-md">Presentations List</button>
+                    <br><br>
+                    <button onclick="location.href='../content/showTopics.php'" type="button" class="btn btn-primary btn-md">Topics List</button>
+                    <br><br>
+                    <button onclick="location.href='../content/showSpeakers.php'" type="button" class="btn btn-primary btn-md">Speakers List</button>
+                    <br><br>
+                    <button onclick="location.href='../content/showVenues.php'" type="button" class="btn btn-primary btn-md">Venues List</button>
+                    <br><br>
+                    <button onclick="location.href='../content/showAttendees.php'" type="button" class="btn btn-primary btn-md">Attendees List</button>
+                </div>
         </body>
 
     </html>

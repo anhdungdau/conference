@@ -8,6 +8,7 @@
     $company = "";
     $username = "";
     $password = "";
+    $user_type = "";
 	$id = 0;
 	$edit_state = false;
 
@@ -23,7 +24,8 @@
         $company = $_POST['company'];
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $query = "INSERT INTO attendees (firstName, lastName, email, phone, company, username, password) VALUES ('$firstName', '$lastName','$email','$phone','$company','$username', '2ac9cb7dc02b3c0083eb70898e549b63')";
+        $user_type = $_POST['user_type'];
+        $query = "INSERT INTO attendees (firstName, lastName, email, phone, company, username, password, user_type) VALUES ('$firstName', '$lastName','$email','$phone','$company','$username', '2ac9cb7dc02b3c0083eb70898e549b63','user')";
 		mysqli_query($db, $query); 
         session_start();
 		echo $_SESSION['msg'] = "An attendee has been added"; 
