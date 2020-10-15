@@ -1,5 +1,5 @@
 <?php 
-    
+
 	// initialize variables
 	$firstName = "";
 	$lastName = "";
@@ -21,8 +21,10 @@
         $company = $_POST['company'];
         $query = "INSERT INTO speakers (firstName, lastName, email, phone, company) VALUES ('$firstName', '$lastName','$email','$phone','$company')";
 		mysqli_query($db, $query); 
-		echo $_SESSION['msg'] = "Info added"; 
+        session_start();
+		echo $_SESSION['msg'] = "A speaker has been added"; 
 		header('location: addSpeakerForm.php');
+        exit();
 	}
     
     //update records
@@ -34,8 +36,10 @@
         $company = mysqli_real_escape_string($db, $_POST['company']);
         $id = mysqli_real_escape_string($db, $_POST['speakerID']);
         mysqli_query($db, "UPDATE speakers SET firstName='$firstName', lastName='$lastName', email='$email', phone='$phone', company='$company' WHERE speakerID=$id");
-        echo $_SESSION['msg'] = "Info updated!"; 
+        session_start();
+        $_SESSION['msg'] = "The speaker has been updated!"; 
         header('location: addSpeakerForm.php');
+        exit();
         }
 
     //delete records
@@ -43,8 +47,10 @@
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         mysqli_query($db, "DELETE FROM speakers WHERE speakerID=$id");
-        echo $_SESSION['msg'] = "Info deleted!"; 
+        session_start();
+        $_SESSION['msg'] = "The speaker has been deleted!"; 
         header('location: addSpeakerForm.php');
+        exit();
     }
 
 ?>

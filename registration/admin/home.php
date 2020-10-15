@@ -38,11 +38,11 @@
 		<h1>Admin - Home Page</h1>	
 		<br><br>
 		<ol>
-            <a href="../../content/addSpeakerForm.php">Add a Speaker</a><br><br>
-            <a href="#">Add a topic</a><br><br>
-            <a href="#">Add a speaker</a><br><br>
-            <a href="#">Add a venue</a><br><br>
-            <a href="#">Add an attendee</a>
+            <a href="../../content/addPresentationForm.php">Presentations</a><br><br>
+            <a href="../../content/addTopicForm.php">Topics</a><br><br>
+            <a href="../../content/addSpeakerForm.php">Speakers</a><br><br>
+            <a href="../../content/addVenueForm.php">Venues</a><br><br>
+            <a href="../../content/addAttendeeForm.php">Attendees</a>
         </ol>
 		
 </body>

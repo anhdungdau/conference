@@ -45,11 +45,11 @@
                     <a class="navbar-brand" href="../registration/admin/home.php">HomePage</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Presentations</a></li>
-                    <li><a href="#">Topics</a></li>
-                    <li><a href="#">Speakers</a></li>
-                    <li><a href="#">Attendees</a></li>
-                    <li><a href="#">Venues</a></li>
+                    <li><a href="addPresentationForm.php">Presentations</a></li>
+                    <li><a href="addTopicForm.php">Topics</a></li>
+                    <li><a href="addSpeakerForm.php">Speakers</a></li>
+                    <li><a href="addAttendeeForm.php">Attendees</a></li>
+                    <li><a href="addVenueForm.php">Venues</a></li>
                 </ul>
                 <div class="nav navbar-right">
                     <!-- notification message -->
@@ -76,7 +76,8 @@
             <?php endif ?>
 
                 <?php $results = mysqli_query($db, "SELECT * FROM speakers"); ?>
-                    <center><h1>List of Speakers</h1></center>
+                    <center>
+                        <h1>List of Speakers</h1></center>
                     <table>
                         <thead>
                             <tr>
@@ -117,7 +118,8 @@
                         </tbody>
                     </table>
 
-                    <center><h2>Add a new speaker</h2></center>
+                    <center>
+                        <h2>Add a new speaker</h2></center>
                     <form method="post" action="crudSpeakers.php">
                         <input type="hidden" name="speakerID" value="<?php echo $id;?>">
                         <div class="input-group">

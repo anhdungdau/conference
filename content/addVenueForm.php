@@ -6,16 +6,17 @@
         exit();
 	}
 
-    include('crudTopics.php');
+    include('crudVenues.php');
 
     //fetch the record to be updated
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
         $edit_state = true;
-		$rec = mysqli_query($db, "SELECT * FROM topics WHERE topicID=$id");
+		$rec = mysqli_query($db, "SELECT * FROM venues WHERE venueID=$id");
         $record = mysqli_fetch_array($rec);
         $title = $record['title'];
-        $description = $record['description'];
+        $location = $record['location'];
+        $capacity = $record['capacity'];
 	}
 
 ?>
@@ -60,8 +61,8 @@
                                     <small><a href="../registration/index.php?logout='1'" style="color: red;">Logout</a></small>
                 </div>
             </div>
-
         </nav>
+
 
         <?php if (isset($_SESSION['msg'])):?>
             <div class="msg">
@@ -72,13 +73,15 @@
             </div>
             <?php endif ?>
 
-                <?php $results = mysqli_query($db, "SELECT * FROM topics"); ?>
-                    <center><h1>List of Topics</h1></center>
+                <?php $results = mysqli_query($db, "SELECT * FROM venues"); ?>
+                    <center>
+                        <h1>List of Venues</h1></center>
                     <table>
                         <thead>
                             <tr>
                                 <th>Title</th>
-                                <th>Description</th>
+                                <th>Location</th>
+                                <th>Capacity</th>
                                 <th colspan="2">Action</th>
                             </tr>
                         </thead>
@@ -89,29 +92,37 @@
                                         <?php echo $row['title']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['description']; ?>
+                                        <?php echo $row['location']; ?>
                                     </td>
                                     <td>
-                                        <a href="addtopicForm.php?edit=<?php echo $row['topicID'];?>" class="edit_btn">Edit</a>
+                                        <?php echo $row['capacity']; ?>
                                     </td>
                                     <td>
-                                        <a href="crudTopics.php?del=<?php echo $row['topicID']; ?>" class="del_btn">Delete</a>
+                                        <a href="addVenueForm.php?edit=<?php echo $row['venueID'];?>" class="edit_btn">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="crudVenues.php?del=<?php echo $row['venueID']; ?>" class="del_btn">Delete</a>
                                     </td>
                                 </tr>
                                 <?php } ?>
                         </tbody>
                     </table>
 
-                    <center><h2>Add a new topic</h2></center>
-                    <form method="post" action="crudTopics.php">
-                        <input type="hidden" name="topicID" value="<?php echo $id;?>">
+                    <center>
+                        <h2>Add a new venue</h2></center>
+                    <form method="post" action="crudVenues.php">
+                        <input type="hidden" name="venueID" value="<?php echo $id;?>">
                         <div class="input-group">
                             <label>Title</label>
                             <input type="text" name="title" value="<?php echo $title;?>">
                         </div>
                         <div class="input-group">
-                            <label>Description</label>
-                            <input type="text" name="description" value="<?php echo $description;?>">
+                            <label>Location</label>
+                            <input type="text" name="location" value="<?php echo $location;?>">
+                        </div>
+                        <div class="input-group">
+                            <label>Capacity</label>
+                            <input type="text" name="capacity" value="<?php echo $capacity;?>">
                         </div>
                         <div class="input-group">
                             <?php if ($edit_state == true): ?>
