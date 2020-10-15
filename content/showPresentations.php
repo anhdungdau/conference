@@ -9,7 +9,8 @@
                 <h1>Welcome to the Australian Financial Pathways Conference (AFPC)</h1>
                 <br>
                 <div>
-                    <h3>Presentations Timetable</h3></div>
+                    <h3>Presentations Timetable</h3>
+                </div>
                 <table id="table">
                     <tr>
                         <th>ID</th>

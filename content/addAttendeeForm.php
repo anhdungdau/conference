@@ -57,7 +57,7 @@
                         <?php endif ?>
                             <?php  if (isset($_SESSION['user'])) : ?>
                                 <strong><?php echo $_SESSION['user']['username']; ?></strong>
-                                <i style="color: green;"><?php echo ucfirst($_SESSION['user']['user_type']); ?></i>
+                                <i style="color: green;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i>
                                 <br>
                                 <?php endif ?>
                                     <small><a href="../registration/index.php?logout='1'" style="color: red;">Logout</a></small>

@@ -10,7 +10,8 @@
                 <br>
                 <br>
                 <div class="container">
-
+                    <button onclick="location.href='../content/registerForm.php'" type="button" class="btn btn-primary btn-md">Register for Presentations</button>
+                    <br><br>
                     <button onclick="location.href='../content/showPresentations.php'" type="button" class="btn btn-primary btn-md">Presentations List</button>
                     <br><br>
                     <button onclick="location.href='../content/showTopics.php'" type="button" class="btn btn-primary btn-md">Topics List</button>
