@@ -73,7 +73,7 @@
         mysqli_close($db);  
         ?>
                     </table>
-                    <input type="submit" value="Selected registration">
+                    <input type="submit" value="Select register(s)">
                 </form>
                 </center>
         </body>
