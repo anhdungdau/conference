@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2020 at 01:00 AM
+-- Generation Time: Oct 20, 2020 at 12:37 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -51,7 +51,8 @@ INSERT INTO `attendees` (`attendeeID`, `firstName`, `lastName`, `email`, `phone`
 (76, 'Neil', 'Johnston', 'neil.johnston@elizabethuninversity.edu', '(09) 4287 6866', 'Elizabeth University', 'neil.johnston', '2ac9cb7dc02b3c0083eb70898e549b63', 'user'),
 (77, 'Melissa', 'Nelson', 'melissa.nelson@harpynorlan.lab', '(02) 1633 5632', 'Harpy Norlan Enterprises', 'melissa.nelson', '2ac9cb7dc02b3c0083eb70898e549b63', 'user'),
 (78, 'Peter', 'Sharpe', 'peter.sharpe@kingston.lab', '(08) 6040 8143', 'Kingston City Council', 'peter.sharpe', '2ac9cb7dc02b3c0083eb70898e549b63', 'user'),
-(79, '1', '2', '3', '4', '5', '6', '2ac9cb7dc02b3c0083eb70898e549b63', 'user');
+(79, '1', '2', '3', '4', '5', '6', '2ac9cb7dc02b3c0083eb70898e549b63', 'user'),
+(80, 'harry', 'potter', 'harry.potter@yahoo.com', '0123456789', 'HP', 'harry.potter', '2ac9cb7dc02b3c0083eb70898e549b63', 'user');
 
 -- --------------------------------------------------------
 
@@ -95,6 +96,38 @@ CREATE TABLE `register` (
   `presentationID` int(12) NOT NULL,
   `attendeeID` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `register`
+--
+
+INSERT INTO `register` (`registerID`, `presentationID`, `attendeeID`) VALUES
+(1, 1, 71),
+(10, 1, 74),
+(14, 1, 80),
+(11, 2, 74),
+(15, 2, 80),
+(8, 3, 71),
+(9, 4, 71),
+(13, 5, 74),
+(2, 7, 71),
+(3, 8, 71),
+(4, 9, 71),
+(5, 10, 71),
+(12, 10, 74);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `registration`
+-- (See below for the actual view)
+--
+CREATE TABLE `registration` (
+`attendeeID` int(12)
+,`Attendee` varchar(65)
+,`presentationID` int(12)
+,`startTime` datetime(6)
+);
 
 -- --------------------------------------------------------
 
@@ -201,6 +234,15 @@ INSERT INTO `venues` (`venueID`, `title`, `location`, `capacity`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure for view `registration`
+--
+DROP TABLE IF EXISTS `registration`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `registration`  AS  select `attendees`.`attendeeID` AS `attendeeID`,concat(`attendees`.`firstName`,' ',`attendees`.`lastName`) AS `Attendee`,`presentations`.`presentationID` AS `presentationID`,`presentations`.`startTime` AS `startTime` from ((`register` join `attendees` on(`register`.`attendeeID` = `attendees`.`attendeeID`)) join `presentations` on(`register`.`presentationID` = `presentations`.`presentationID`)) ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `showpre`
 --
 DROP TABLE IF EXISTS `showpre`;
@@ -260,7 +302,7 @@ ALTER TABLE `venues`
 -- AUTO_INCREMENT for table `attendees`
 --
 ALTER TABLE `attendees`
-  MODIFY `attendeeID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `attendeeID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `presentations`
@@ -272,7 +314,7 @@ ALTER TABLE `presentations`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `registerID` int(12) NOT NULL AUTO_INCREMENT;
+  MODIFY `registerID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `speakers`
