@@ -1,30 +1,29 @@
 <?php 
 
 session_start();
+
+$value = "";
+$result = "";
+
+if (isset($_POST["presentationID"])) {
+    foreach ($_POST["presentationID"] as $checkbox) {
+        $value .= "(".$checkbox.",".$_SESSION['user']['attendeeID']."),";
+    }
+}
+
+$result .= rtrim($value,",").";";
+
 $db = mysqli_connect('localhost', 'root', '', 'conference'); 
-$sql = "SELECT * FROM register";
-
-$choice = $_POST['presentationID'];
-
-if (empty($choice)) {
-    echo ("You did not select any presentation.");
-    }
-    else {
-        $n = count($choice);
-        $value = [];
-        $query = ("INSERT INTO register (presentationID, attendeeID) VALUES ");
-        
-        for ($i=0; $i < $n; $i++) {
-            $value .= ("(" .$choice[$i].",".$_SESSION['user']['attendeeID']."),");
-    }
-    $query .= rtrim($values,",").";";
-    }
+$query = "INSERT INTO register (presentationID, attendeeID) VALUES $result";
 
 if (mysqli_query($db, $query)) {
-    echo "Records added successfully";
+    echo "Records added successfully.";
     } else {
         echo "ERROR: Could not able to connect to the database";
 }
 
 mysqli_close($db);
+header( "refresh:3;url=showRegisters.php" );
+echo 'You will be redirected to the presentations registered list shortly!';
+exit();
 ?>

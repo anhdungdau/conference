@@ -5,10 +5,8 @@
     <?php include('../include/header.php'); ?>
         <body>
             <?php include('../include/navbar.php'); ?>
-                <h1>Welcome to the Australian Financial Pathways Conference (AFPC)</h1>
-                <br>
-                <div>
-                    <h3>Speakers List</h3></div>
+                <center><h1>Speakers List</h1>
+                <br><br>
                 <table id="table">
                     <tr>
                         <th>ID</th>
@@ -49,5 +47,6 @@
                             mysqli_close($db);  
                         ?>
                 </table>
+            </center>
         </body>
 </html>

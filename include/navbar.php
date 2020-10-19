@@ -1,9 +1,12 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
+       
         <div class="navbar-header">
-            <a class="navbar-brand" href="../registration/index.php">AFPC</a>
+            <a class="navbar-left" href="../registration/index.php"><img src="../img/logo.png"><h4>Financial Services</h4></a>
         </div>
+        
         <ul class="nav navbar-nav">
+            <li><a href="../content/registerForm.php">Register for Presentations</a></li>
             <li><a href="../content/showPresentations.php">Presentations List</a></li>
             <li><a href="../content/showTopics.php">Topics List</a></li>
             <li><a href="../content/showSpeakers.php">Speakers List</a></li>

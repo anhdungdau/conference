@@ -6,12 +6,9 @@
 
         <body>
             <?php include('../include/navbar.php'); ?>
-                <h1>Welcome to the Australian Financial Pathways Conference (AFPC)</h1>
-                <br>
-                <div>
-                    <h3>Presentations Timetable</h3>
-                </div>
-                <table id="table">
+                <center><h1>Presentations Timetable</h1>
+                <br><br>
+                 <table id="table">
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
@@ -63,6 +60,7 @@
         mysqli_close($db);  
         ?>
                 </table>
+                </center>
         </body>
 
 </html>

@@ -20,10 +20,10 @@
 
         <body>
             <?php include('../include/navbar.php'); ?>
-                <center><h3>Registration for Presentations</h3>
+                <center><h1>Register for Presentations</h1>
                 <br>
                 <br>
-                <form id="fm" method="post" action="registerFunction.php">
+                <form id="form" method="post" action="registerFunction.php">
                     <table id="table">
                         <tr>
                             <th>Register</th>
@@ -41,7 +41,7 @@
             ?>
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="presentationID[]" value="'<?php echo $row['presentationID'];?>'">
+                                    <input type="checkbox" name="presentationID[]" value="<?php echo $row['presentationID'];?>">
                                 </td>
                                 <td>
                                     <?php echo $row['presentationID'];?>

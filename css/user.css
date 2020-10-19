@@ -1,110 +1,138 @@
+h1 {
+    display: block;
+    font-size: 120%;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #003366;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #CC6600;
+}
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #003366;
+}
 table {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 80%;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
     margin: 10px auto;
 }
-
-#table td, #table th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#table tr:nth-child(even){background-color: #f2f2f2;}
-
-#table tr:hover {background-color: #ddd;}
-
+#table td,
 #table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4290f5;
-  color: white;
+    border: 1px solid #ddd;
+    padding: 8px;
 }
-
-.logo-image{
+#table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#table tr:hover {
+    background-color: #ddd;
+}
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4290f5;
+    color: white;
+}
+.logo-image {
     width: 46px;
     height: 46px;
     border-radius: 50%;
     overflow: hidden;
     margin-top: -6px;
 }
-
 * {
-	margin: 0px;
-	padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 body {
-	font-size: 120%;
-	background: #F8F8FF;
+    font-size: 120%;
+    background: #fff9bf;
 }
-
 .header {
-	width: 40%;
-	margin: 50px auto 0px;
-	color: white;
-	background: #5F9EA0;
-	text-align: center;
-	border: 1px solid #B0C4DE;
-	border-bottom: none;
-	border-radius: 10px 10px 0px 0px;
-	padding: 20px;
+    width: 40%;
+    margin: 50px auto 0px;
+    color: white;
+    background: #5F9EA0;
+    text-align: center;
+    border: 1px solid #B0C4DE;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
 }
-form, .content {
-	width: 40%;
-	margin: 0px auto;
-	padding: 20px;
-	border: 1px solid #B0C4DE;
-	background: white;
-	border-radius: 0px 0px 10px 10px;
+form,
+.content {
+    width: 40%;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 0px 0px 10px 10px;
 }
 .input-group {
-	margin: 10px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
 }
-
 .input-group label {
-	display: block;
-	text-align: left;
-	margin: 3px;
+    display: block;
+    text-align: left;
+    margin: 3px;
 }
 .input-group input {
-	height: 30px;
-	width: 93%;
-	padding: 5px 10px;
-	font-size: 16px;
-	border-radius: 5px;
-	border: 1px solid gray;
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 #user_type {
-	height: 40px;
-	width: 98%;
-	padding: 5px 10px;
-	background: white;
-	font-size: 16px;
-	border-radius: 5px;
-	border: 1px solid gray;
+    height: 40px;
+    width: 98%;
+    padding: 5px 10px;
+    background: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 .btn {
-	padding: 10px;
-	font-size: 15px;
-	color: white;
-	background: #5F9EA0;
-	border: none;
-	border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background: #5F9EA0;
+    border: none;
+    border-radius: 5px;
 }
 .error {
-	width: 92%; 
-	margin: 0px auto; 
-	padding: 10px; 
-	border: 1px solid #a94442; 
-	color: #a94442; 
-	background: #f2dede; 
-	border-radius: 5px; 
-	text-align: left;
+    width: 92%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: #a94442;
+    background: #f2dede;
+    border-radius: 5px;
+    text-align: left;
 }
 .success {
-	color: #3c763d; 
-	background: #dff0d8; 
-	border: 1px solid #3c763d;
-	margin-bottom: 20px;
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
 }
